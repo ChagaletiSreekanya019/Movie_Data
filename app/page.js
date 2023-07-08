@@ -1,13 +1,15 @@
 import Header from "./header.js";
 import "./header.css";
-import Movie_list from "./movielist.js";
-import Foot from "./footer.js";
+import Movie from "./delete.js";
+import Movie_data from "./movie_row.js";
+import Anchor from "./anchor.js";
 export default function App(){
     return(
         <>
             <Header/>
-            <Movie_list/>
-            <Foot/>
+            <Movie_data/>
+            <Movie/>
+            
         </>
     )
 }

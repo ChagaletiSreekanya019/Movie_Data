@@ -1,7 +1,7 @@
 export default function Like(){
     return (
         <div className="a">
-            <img src="Icon - Like.svg"/>
+            <button><img src="Icon - Like.svg"/></button>
         </div>
     )
 }
