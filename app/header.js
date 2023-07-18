@@ -2,10 +2,18 @@ export default function Header(){
     return(
         <div>
             <div className="abc">
-                <img src="Icon - Logo.svg"/>
-                <h1> Movie Hub </h1>
+                <div className="row1"></div>
+                <div className="row2">
+                    <div className="col1">
+                        <img src="Icon - Logo.svg"/>
+                    </div>
+                    <div className="col2">
+                        <p className="moviehub">Movie Hub</p>
+                    </div>
+                </div>
             </div>
-            <div className="row2">/</div>
+            <div className="r2"></div>
+             
         </div>
         )
 }

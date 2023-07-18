@@ -2,26 +2,56 @@
 *{
     color:white;
 }
-h1{
-   
-    display:inline-block;
-}
+
 
 .abc{
     width:1200px;
     height:150px;
     background-color:black;
     margin-left:300px;
-    display:inline-block;
-    border-bottom:solid 1px red;
-  
 }
-.row2{
+.r2{
     width:1200px;
     height:100px;
     background-color:black;
     margin-left:300px;
 }
+.row1{
+    width:1200px;
+    height:30px;
+}
+.row2{
+    width:1100px;
+    height:90px;
+    border:solid 1px red;
+}
+.col1{
+    width:100px;
+    margin-left:80px;
+    float:left;
+}
+.col2{
+    width:140px;
+    margin-left:20px;
+    float:left;
+    
+}
+
+.head{
+    margin-left:100px;
+    
+}
+.moviehub{
+    font-size:30px;
+}
+.watch{
+    float:right;
+    font-size:20px;
+    color:white;
+    margin-left:20px;
+    margin-right:20px;
+}
+
 .row_movie{
     width:1200px;
     height:270px;
@@ -62,11 +92,9 @@ h1{
     width:50px;
     float:left;
     margin-left:20px;
-    margin-bottom:10px;
-
 }
 .count{
-    font-size:25px;
+    font-size:20px;
     text-align:center;
     line-height:0px;
     
@@ -89,6 +117,12 @@ h1{
     margin-left:300px;
     border-bottom:solid 1px red;
 }
+.anchor{
+    width:700px;
+    height:50px;
+    margin-top:80px;
+   }
+                    
     
 
 

@@ -1,4 +1,4 @@
-export const movies = [{
+export const Movies = [{
       id: 0, 
       Name: 'RRR',
       votes: 0,
@@ -92,9 +92,37 @@ export const movies = [{
     }]
 
 
+const App=()=>{
+    const[movie,setMovie]=useState(Movies);
+    function handleDelete(key){
+        const newMovie=movie.filter((item)=>key !== item.id);
+        setMovie(newMovie)
+    }
+    return(
+        <>
+            <Header/>
+            {Movies.map(movie=>
+                <Movie_data
+                    key={movie.id}
+                    movie={movie}
+                    name={movie.name}
+                    summary={movie.discription}
+                    image={movie.imageurl}
+                    Genre={movie.genre}
+                    Year={movie.year}
+                    Duration={movie.duration}
+                    onDelete={()=>handleDelete(movie.id)}
+                        
+                    
+                 />
+            )}
+            
+            
+        </>
+        )
+}
 
-
-
+export default App;
 
 
 
