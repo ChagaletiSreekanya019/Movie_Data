@@ -1,3 +1,4 @@
+
 import Anchor from "./anchor.js";
 import Delete from "./delete.js"
 const Moviedata=(props)=>{
@@ -14,7 +15,9 @@ const Moviedata=(props)=>{
                     <h3 style={{color: "white"}}> Description </h3>
                     <p style={{color: "white"}}>{props.summary}</p>
                     <div className="anchor">
-                        <Anchor/>
+                        <Anchor
+                            {...props}
+                        />
                         <Delete
                            {...props}
                         />

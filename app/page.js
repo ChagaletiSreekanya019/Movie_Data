@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+import Foot from "./footer.js"
 import Header from "./header.js";
 import "./header.css";
 import Moviedata from "./movie_row.js";
@@ -89,7 +90,7 @@ const Movies = [{
     }, {
       id: 9, 
       Name: 'DHRUSHAM',
-      votes: 'Bhasker',
+      votes: 0,
       year: 2018,
       duration: "2h 06m",
       genre:"Drama ,Thirller",      
@@ -100,16 +101,21 @@ const Movies = [{
 
 const App=()=>{
     const[item,setItem]=useState(Movies);
+    function handleRating(id,likes){
+        const updatedMovies=item.map((movie)=>{
+            if (movie.id===id){
+                return {
+                    ...movie,votes:likes
+                }
+            }
+            return movie
+        });
+        const sortedMovies=updatedMovies.sort((a,b)=>b.votes-a.votes)
+        setItem(sortedMovies)
+        }
     function handleDelete(id){
-        const newMovie=item.filter((film)=>id !== film.id);
-        setItem(newMovie)
-    }
-    function handleSort(id,num){
-        const newMovieList=[...item];
-        const movie=newMovieList.find(movie=>movie.id===id);
-        movie.votes=num
-        newMovieList.sort(num)
-        setMovies(newMovieList)
+    const newMovie=item.filter((film)=>id !== film.id);
+    setItem(newMovie)
     }
     return(
         <>
@@ -123,10 +129,15 @@ const App=()=>{
                     Year={movie.year}
                     Duration={movie.duration}
                     onDelete={()=>handleDelete(movie.id)}
+                    like={movie.votes}
+                    onUpdateRating={handleRating}
+                    movie_id={movie.id}
                         
                     
                  />
+            
             )}
+            <Foot/>
             
             
         </>
@@ -134,5 +145,6 @@ const App=()=>{
 }
 
 export default App;
+
 
 
