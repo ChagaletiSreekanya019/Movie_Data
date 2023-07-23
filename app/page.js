@@ -1,9 +1,10 @@
 "use client"
-import React, { useState } from "react";
+import{ useState } from "react";
 import Foot from "./footer.js"
 import Header from "./header.js";
 import "./header.css";
 import Moviedata from "./movie_row.js";
+import Movieadd from "./movie_add.js";
 import Anchor from "./anchor.js";
 const Movies = [{
       id: 0, 
@@ -22,7 +23,7 @@ const Movies = [{
       duration: "2h 30m",
       genre:"Drama,Romance",    
       imageurl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwquoB9OirteGsHVkcprOnckf4giOBNoMqbw&usqp=CAU",
-      discription:"A labourer named Pushpa makes enemies as he rises in the world of red sandalwood smuggling. However, violence erupts when the police attempt to bring down his illegal business."
+      discription:"A labourer named Pushpa makes enemies as he rises in the world of red sandalwood smuggling. However, violence erupts when the police attempt."
       
     }, {
       id: 2, 
@@ -101,6 +102,10 @@ const Movies = [{
 
 const App=()=>{
     const[item,setItem]=useState(Movies);
+    const handleAddMovie=(newMovie)=>{
+            const updatedMovies=[...item,{...newMovie,id: item.length }]
+            setItem(updatedMovies)
+        };
     function handleRating(id,likes){
         const updatedMovies=item.map((movie)=>{
             if (movie.id===id){
@@ -113,6 +118,7 @@ const App=()=>{
         const sortedMovies=updatedMovies.sort((a,b)=>b.votes-a.votes)
         setItem(sortedMovies)
         }
+        
     function handleDelete(id){
     const newMovie=item.filter((film)=>id !== film.id);
     setItem(newMovie)
@@ -122,7 +128,7 @@ const App=()=>{
             <Header/>
             {item.map((movie)=>
                 <Moviedata
-                    name={movie.name}
+                    name={movie.Name}
                     summary={movie.discription}
                     image={movie.imageurl}
                     Genre={movie.genre}
@@ -132,11 +138,11 @@ const App=()=>{
                     like={movie.votes}
                     onUpdateRating={handleRating}
                     movie_id={movie.id}
-                        
-                    
-                 />
+                  />
+            
             
             )}
+            <Movieadd onAddMovie={handleAddMovie}/>
             <Foot/>
             
             
